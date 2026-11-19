@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World in One Image — 19 November 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; }
+  body {
+    background: #f6f1e3;
+    color: #141414;
+    font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+    padding: 13px 30px 10px 30px;
+    overflow: hidden;
+  }
+  .sans { font-family: "Noto Sans", Arial, Helvetica, sans-serif; }
+  /* ---------- top strip ---------- */
+  .topbar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #141414;
+    border-bottom: 2px solid #141414; padding-bottom: 5px;
+  }
+  .topbar .red { color: #b91c1c; }
+  /* ---------- masthead ---------- */
+  .masthead {
+    text-align: center; padding: 6px 0 4px 0;
+  }
+  .masthead h1 {
+    font-size: 50px; line-height: 0.98; font-weight: 900; letter-spacing: 1px;
+  }
+  .masthead h1 .red { color: #b91c1c; }
+  .dateline {
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: 17px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; padding-top: 4px;
+  }
+  .dateline span { color: #b91c1c; }
+  .rule-double { border-top: 3px solid #141414; border-bottom: 1px solid #141414; height: 5px; margin: 6px 0 0 0; }
+  /* ---------- hero ---------- */
+  .hero { display: flex; gap: 22px; margin-top: 8px; }
+  .hero-left { width: 606px; flex: none; }
+  .kicker {
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: 14px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #b91c1c;
+  }
+  .hero-left h2 {
+    font-size: 50px; line-height: 0.98; font-weight: 900; letter-spacing: -0.5px;
+    margin: 4px 0 6px 0;
+  }
+  .hero-deck { font-size: 18px; line-height: 1.3; font-weight: 400; }
+  .hero-deck b { font-weight: 700; }
+  .art { margin-top: 10px; border: 2px solid #141414; background: #dce6ea; position: relative; }
+  .art svg { display: block; width: 100%; height: 160px; }
+  .art-caption {
+    font-family: "Noto Sans", Arial, sans-serif; font-size: 12.5px; font-weight: 600;
+    letter-spacing: 1px; padding: 5px 8px; border-top: 1px solid #141414;
+    background: #f6f1e3; text-transform: uppercase;
+  }
+  .art-caption b { color: #b91c1c; }
+  /* hero right column */
+  .hero-right { flex: 1; display: flex; flex-direction: column; gap: 0; }
+  .side-story { padding: 2px 0 8px 0; }
+  .side-story + .side-story { border-top: 1px solid #141414; padding-top: 8px; }
+  .side-story h3 { font-size: 25px; line-height: 1.08; font-weight: 900; margin: 4px 0 5px 0; }
+  .side-story p { font-size: 16px; line-height: 1.3; }
+  .side-story .flagrow { display: flex; gap: 8px; margin-top: 8px; }
+  .flagchip {
+    font-family: "Noto Sans", Arial, sans-serif; font-size: 12px; font-weight: 800;
+    letter-spacing: 1.5px; border: 1.5px solid #141414; padding: 3px 8px;
+    text-transform: uppercase; background: #fffdf6;
+  }
+  .flagchip.red { background: #b91c1c; color: #fff; border-color: #b91c1c; }
+  .vote-box {
+    margin-top: 8px; background: #141414; color: #f6f1e3; padding: 8px 12px;
+  }
+  .vote-box .num { font-size: 30px; font-weight: 900; line-height: 1; }
+  .vote-box .num em { color: #ff5a4e; font-style: normal; }
+  .vote-box .lbl {
+    font-family: "Noto Sans", Arial, sans-serif; font-size: 12.5px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px;
+  }
+  /* ---------- middle row ---------- */
+  .midrule { border-top: 3px solid #141414; margin-top: 8px; }
+  .mid { display: flex; gap: 0; margin-top: 8px; }
+  .mid-col { flex: 1; padding: 0 16px; }
+  .mid-col:first-child { padding-left: 0; }
+  .mid-col:last-child { padding-right: 0; }
+  .mid-col + .mid-col { border-left: 1px solid #141414; }
+  .mid-col h3 { font-size: 23px; line-height: 1.1; font-weight: 900; margin: 4px 0 5px 0; }
+  .mid-col p { font-size: 15px; line-height: 1.3; }
+  .mid-col .bignum {
+    font-size: 40px; font-weight: 900; line-height: 1; color: #b91c1c; margin: 2px 0 4px 0;
+  }
+  .mid-col .bignum small { font-size: 20px; color: #141414; }
+  .mid-col svg { display: block; margin: 2px 0 6px 0; }
+  /* ---------- bottom strip ---------- */
+  .bottom {
+    margin-top: 8px; border-top: 3px solid #141414; border-bottom: 3px solid #141414;
+    padding: 7px 0 8px 0; display: flex; gap: 0;
+  }
+  .bottom .also {
+    font-family: "Noto Sans", Arial, sans-serif; font-size: 13px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; color: #b91c1c;
+    writing-mode: horizontal-tb; flex: none; width: 108px; padding-top: 2px;
+  }
+  .bottom .item { flex: 1; padding: 0 14px; }
+  .bottom .item + .item { border-left: 1px solid #141414; }
+  .bottom h4 { font-size: 18px; line-height: 1.12; font-weight: 900; margin-bottom: 3px; }
+  .bottom p { font-size: 14px; line-height: 1.28; }
+  /* ---------- footer ---------- */
+  .footer {
+    margin-top: 4px; display: flex; justify-content: space-between;
+    font-family: "Noto Sans", Arial, sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 1.2px; text-transform: uppercase; color: #555;
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span>Thursday &middot; 19 November 2026</span>
+    <span class="red">One day &middot; Ten stories</span>
+    <span>World Edition</span>
+  </div>
+
+  <div class="masthead">
+    <h1>THE WORLD <span class="red">IN ONE IMAGE</span></h1>
+    <div class="dateline">19 November 2026 <span>&mdash; the day, on one page</span></div>
+  </div>
+  <div class="rule-double"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="kicker">Washington &middot; Lead story</div>
+      <h2>JEFFRIES NOMINATED</h2>
+      <p class="hero-deck">House Democrats choose <b>Hakeem Jeffries</b> for
+      Speaker, <b>251&ndash;11</b> &mdash; he would be the first Black lawmaker to
+      lead the chamber if the full House elects him on <b>3 January</b>.</p>
+      <div class="art">
+        <svg viewBox="0 0 600 210" xmlns="http://www.w3.org/2000/svg">
+          <!-- sky -->
+          <rect x="0" y="0" width="600" height="210" fill="#dce6ea"/>
+          <!-- sun -->
+          <circle cx="512" cy="42" r="26" fill="#b91c1c" opacity="0.85"/>
+          <!-- ground -->
+          <rect x="0" y="182" width="600" height="28" fill="#e9dfc2"/>
+          <!-- wings -->
+          <rect x="96" y="140" width="104" height="42" fill="#141414"/>
+          <path d="M88,140 L148,118 L208,140 Z" fill="#141414"/>
+          <rect x="400" y="140" width="104" height="42" fill="#141414"/>
+          <path d="M392,140 L452,118 L512,140 Z" fill="#141414"/>
+          <!-- main block -->
+          <rect x="200" y="140" width="200" height="42" fill="#141414"/>
+          <!-- columns -->
+          <g fill="#f6f1e3">
+            <rect x="216" y="104" width="9" height="36"/>
+            <rect x="238" y="104" width="9" height="36"/>
+            <rect x="260" y="104" width="9" height="36"/>
+            <rect x="282" y="104" width="9" height="36"/>
+            <rect x="309" y="104" width="9" height="36"/>
+            <rect x="331" y="104" width="9" height="36"/>
+            <rect x="353" y="104" width="9" height="36"/>
+            <rect x="375" y="104" width="9" height="36"/>
+          </g>
+          <!-- entablature -->
+          <rect x="204" y="96" width="192" height="8" fill="#141414"/>
+          <!-- dome drum -->
+          <rect x="258" y="66" width="84" height="30" fill="#141414"/>
+          <!-- dome -->
+          <path d="M252,66 Q300,8 348,66 Z" fill="#141414"/>
+          <!-- lantern + flag -->
+          <rect x="294" y="2" width="12" height="10" fill="#141414"/>
+          <line x1="300" y1="2" x2="300" y2="-2" stroke="#141414" stroke-width="2"/>
+          <path d="M300,0 L322,5 L300,10 Z" fill="#b91c1c"/>
+          <!-- vote callout -->
+          <text x="300" y="196" font-family="Noto Sans, Arial" font-size="13" font-weight="800" letter-spacing="3" fill="#141414" text-anchor="middle">THE US CAPITOL &middot; WASHINGTON</text>
+        </svg>
+        <div class="art-caption"><b>251 &ndash; 11</b> &nbsp;&middot;&nbsp; The Democratic caucus vote</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="side-story">
+        <div class="kicker">China &middot; Nuclear talks</div>
+        <h3>TRUMP, PUTIN AND XI MEET IN CHINA</h3>
+        <p>Putin meets Trump and Xi for high-stakes nuclear talks &mdash; as
+        allies gather in Berlin to back Ukraine&rsquo;s air defences.</p>
+        <div class="flagrow">
+          <span class="flagchip red">USA</span>
+          <span class="flagchip">China</span>
+          <span class="flagchip">Russia</span>
+        </div>
+      </div>
+      <div class="side-story">
+        <div class="kicker">Crimea &middot; War in Ukraine</div>
+        <svg width="300" height="46" viewBox="0 0 300 46" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6,38 L70,38 M230,38 L294,38" stroke="#141414" stroke-width="3"/>
+          <path d="M70,38 L70,16 M230,38 L230,16" stroke="#141414" stroke-width="3"/>
+          <path d="M70,16 Q110,4 138,10" fill="none" stroke="#141414" stroke-width="3"/>
+          <path d="M230,16 Q200,6 176,12" fill="none" stroke="#b91c1c" stroke-width="3" stroke-dasharray="4 3"/>
+          <path d="M164,2 L178,16 L154,24 L170,10 Z" fill="#b91c1c"/>
+          <path d="M156,6 L146,20" stroke="#b91c1c" stroke-width="2.5"/>
+        </svg>
+        <h3>KERCH BRIDGE HIT A THIRD TIME</h3>
+        <p>Overnight strikes hit the railway span &mdash; the third attack on the
+        bridge this week. Traffic halted; damage being assessed.</p>
+        <div class="vote-box">
+          <div class="num">3 <em>attacks</em></div>
+          <div class="lbl">On the bridge in one week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDDLE ROW -->
+  <div class="midrule"></div>
+  <div class="mid">
+    <div class="mid-col">
+      <div class="kicker">Jerusalem &middot; Israel</div>
+      <h3>EISENKOT TAPPED TO LEAD ISRAEL</h3>
+      <p>President Herzog asks ex-army chief <b>Gadi Eisenkot</b> to form a
+      government, passing over Netanyahu &mdash; as Israeli tanks cross the Gaza
+      ceasefire line.</p>
+    </div>
+    <div class="mid-col">
+      <div class="kicker">Wall Street &middot; Business</div>
+      <div class="bignum">$81.3<small>bn</small></div>
+      <h3>BIGGEST IPO EVER</h3>
+      <p>Anthropic prices at <b>$83 a share</b> &mdash; the largest stock-market
+      debut on record. Shares start trading today as <b>ANT</b>; the Claude maker
+      is valued near $1.5 trillion.</p>
+    </div>
+    <div class="mid-col">
+      <div class="kicker">Vice City &middot; Culture</div>
+      <svg width="280" height="46" viewBox="0 0 280 46" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="238" cy="24" r="20" fill="#b91c1c"/>
+        <rect x="0" y="40" width="280" height="2" fill="#141414"/>
+        <path d="M52,44 C54,30 56,20 62,8" fill="none" stroke="#141414" stroke-width="4"/>
+        <path d="M62,8 C48,2 34,4 26,12 M62,8 C56,-2 44,-6 34,-4 M62,8 C72,0 84,-2 94,4 M62,8 C76,4 88,8 94,16 M62,8 C66,16 70,20 78,22" fill="none" stroke="#141414" stroke-width="3"/>
+      </svg>
+      <h3>VICE CITY OPENS</h3>
+      <p><b>Grand Theft Auto VI</b> rolls out worldwide at midnight local time,
+      back in Vice City after 13 years &mdash; Metacritic 99, and about 16m copies
+      already sold.</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM STRIP -->
+  <div class="bottom">
+    <div class="also">Also<br>today</div>
+    <div class="item">
+      <h4>GULF STANDOFF DEEPENS</h4>
+      <p>Iran&rsquo;s Guards warn Bahrain&rsquo;s monarchy faces an &ldquo;existential
+      threat&rdquo;; Saudi Arabia says the danger has passed in three cities.</p>
+    </div>
+    <div class="item">
+      <h4>EU&rsquo;S &euro;45BN FOR UKRAINE</h4>
+      <p>Brussels proposes &euro;45bn in loans for 2027 &mdash; repaid only if Russia
+      pays reparations.</p>
+    </div>
+    <div class="item">
+      <h4>ISTANBUL FLOODS KILL 3</h4>
+      <p>An unprecedented deluge floods the city; three people dead.</p>
+    </div>
+    <div class="item">
+      <h4>KENYA: SECOND EBOLA CASE</h4>
+      <p>A second case is confirmed, linked to the first patient.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>All stories reported Thursday 19 November 2026</span>
+    <span>The World in One Image &middot; News-image-20261119</span>
+  </div>
+
+</body>
+</html>
